@@ -32,7 +32,7 @@ func predictions(w http.ResponseWriter, r *http.Request) {
 	reftimes, ok := r.URL.Query()["reftime"]
 
 	if !ok || len(reftimes[0]) < 1 {
-		log.Println("Url Param 'reftime' given. Using current")
+		log.Println("No parameter'reftime' given. Using current/latest reftime")
 
 	} else {
 		reftimeSstr := reftimes[0]
@@ -48,7 +48,7 @@ func predictions(w http.ResponseWriter, r *http.Request) {
 			reftime.Format("2006"),
 			reftime.Format("01"),
 			reftime.Format("02"),
-			reftime.Format("20060102T1504"),
+			reftime.Format("20060102T1504Z"),
 		)
 
 		log.Printf("PAth: %s", path)
