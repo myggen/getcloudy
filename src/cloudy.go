@@ -51,11 +51,8 @@ func predictions(w http.ResponseWriter, r *http.Request) {
 			reftime.Format("20060102T1504Z"),
 		)
 
-		log.Printf("PAth: %s", path)
+		log.Printf("Path: %s", path)
 	}
-
-	// Query()["key"] will return an array of items,
-	// we only want the single item.
 
 	bytes, err := ioutil.ReadFile(path)
 	if err != nil {
